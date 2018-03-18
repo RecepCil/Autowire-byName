@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Injection with constructor -->
+    <bean id="address1" class="com.test.Address" >
+        <constructor-arg name="city" value="Istanbul" />
+        <constructor-arg name="country" value="Turkey" />
+    </bean>
+
+    <!-- Injection with constructor -->
+    <bean id="address2" class="com.test.Address" >
+        <constructor-arg name="city" value="Ankara" />
+        <constructor-arg name="country" value="Turkey" />
+    </bean>
+
+    <bean id="person" class="com.test.Person" autowire="byName" >
+        <!-- Person bean need just an address bean.
+         If there is several bean from Address class,
+         autowire byName will match with bean
+         which has same id with setter method of the Address
+         inside Person class for injecting the value
+         -->
+    </bean>
+
+</beans>
